@@ -1,0 +1,31 @@
+ShopBundle\Entity\Image:
+    type: entity
+    table: image
+    repositoryClass: ShopBundle\Repository\ImageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        file:
+            type: string
+            length: 255
+        alt:
+            type: string
+            length: 255
+        updatedAt:
+            type: datetime
+    manyToOne:
+        product:
+            targetEntity: ShopBundle\Entity\Product
+            inversedBy: images
+            joinColumn:
+                name: product_id
+                referencedColumnName: id
+                nullable: false
+            onDelete: CASCADE # Deletion is managed on database level
+    # lifecycleCallbacks: {}
+    # Persistence events are handled by the service defined in :
+    # src/ShopBundle/EventListener/ImageEventListener.php

@@ -1,0 +1,36 @@
+ShopBundle\Entity\Category:
+    type: entity
+    table: category
+    repositoryClass: ShopBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+            nullable: true
+        enabled:
+            type: boolean
+            nullable: false
+        slug:
+            type: string
+            length: 255
+            unique: true
+    oneToOne:
+        seo:
+            targetEntity: ShopBundle\Entity\Seo
+            joinColumn:
+                name: seo_id
+                referencedColumnName: id
+            cascade: [all]
+            onDelete: RESTRICT
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]

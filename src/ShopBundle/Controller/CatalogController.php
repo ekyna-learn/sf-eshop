@@ -32,7 +32,9 @@ class CatalogController extends Controller
      */
     public function categoryAction($categorySlug)
     {
-        return new Response('Category slug: ' . $categorySlug);
+        $category = $this->findCategoryBySlug($categorySlug);
+
+        return new Response('Category: ' . $category->getTitle());
     }
 
     /**
@@ -45,7 +47,18 @@ class CatalogController extends Controller
      */
     public function productAction($categorySlug, $productSlug)
     {
-        return new Response('Category slug: ' . $categorySlug . '<br>Product slug: ' . $productSlug);
+        $category = $this->findCategoryBySlug($categorySlug);
+
+        $product = $this
+            ->getDoctrine()
+            ->getRepository('ShopBundle:Product')
+            ->findOneByCategoryAndSlug($category, $productSlug);
+
+        if (null === $product) {
+            throw $this->createNotFoundException('Product not found.');
+        }
+
+        return new Response('Category: ' . $category->getTitle() . '<br>Product: ' . $product->getTitle());
     }
 
     /**
@@ -82,5 +95,26 @@ class CatalogController extends Controller
         $response->setLastModified($image->getUpdatedAt());
 
         return $response;
+    }
+
+    /**
+     * Finds the category by slug.
+     *
+     * @param string $slug
+     *
+     * @return \ShopBundle\Entity\Category|null
+     */
+    private function findCategoryBySlug($slug)
+    {
+        $category = $this
+            ->getDoctrine()
+            ->getRepository('ShopBundle:Category')
+            ->findEnabledBySlug($slug);
+
+        if (null === $category) {
+            throw $this->createNotFoundException('Category not found.');
+        }
+
+        return $category;
     }
 }

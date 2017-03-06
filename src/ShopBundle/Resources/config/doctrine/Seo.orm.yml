@@ -1,0 +1,18 @@
+ShopBundle\Entity\Seo:
+    type: entity
+    table: seo
+    repositoryClass: ShopBundle\Repository\SeoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+            nullable: true

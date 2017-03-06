@@ -1,0 +1,76 @@
+ShopBundle\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: ShopBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+            nullable: false
+        description:
+            type: text
+        price:
+            type: decimal
+            precision: '7'
+            scale: '2'
+            nullable: false
+        stock:
+            type: integer
+            nullable: false
+        releasedAt:
+            type: date
+            nullable: false
+        slug:
+            type: string
+            length: 255
+            unique: true
+            nullable: false
+    oneToOne:
+        seo:
+            targetEntity: ShopBundle\Entity\Seo
+            joinColumn:
+                name: seo_id
+                referencedColumnName: id
+                nullable: false
+            cascade: [persist, remove] # Cascade operation on Doctrine level
+            onDelete: RESTRICT # Restriction on database level (Seo can't be deleted without deleting the product too).
+    oneToMany:
+        images:
+            targetEntity: ShopBundle\Entity\Image
+            mappedBy: product
+            cascade: [all]
+            orphanRemoval: true # Doctrine level : any image that is not referenced in a product will be removed.
+            # Quote from the Doctrine documentation :
+            # When using the orphanRemoval=true option, Doctrine makes the assumption that the entities are privately
+            # owned and will NOT be reused by other entities. If you neglect this assumption your entities will get
+            # deleted by Doctrine even if you assigned the orphaned entity to another one.
+    manyToOne:
+        category:
+            targetEntity: ShopBundle\Entity\Category
+            joinColum:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+            onDelete: RESTRICT
+    manyToMany:
+        features:
+            targetEntity: ShopBundle\Entity\Feature
+            inversedBy: products
+            joinTable:
+                name: products_features
+                joinColumns:
+                    product_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    feature_id:
+                        referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [onPrePersist] # See src/ShopBundle/Entity/Product::onPrePersist
+        preUpdate: [onPreUpdate] # See src/ShopBundle/Entity/Product::onPreUpdate
