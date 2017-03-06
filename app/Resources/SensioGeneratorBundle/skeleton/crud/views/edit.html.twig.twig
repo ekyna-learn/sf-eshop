@@ -1,0 +1,16 @@
+{% block extends %}
+{{ "{% extends 'ShopBundle:Admin:base.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block content %}" }}
+    <h1>{{ entity_singularized|capitalize }} edit</h1>
+    <hr>
+    {{ '{{ form_start(edit_form) }}' }}
+        {{ '{{ form_widget(edit_form) }}' }}
+    {{ '{{ form_end(edit_form) }}' }}
+    <hr>
+{% set hide_edit, hide_delete = true, false %}
+{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+{{ "{% endblock %}" }}
+{% endblock body %}

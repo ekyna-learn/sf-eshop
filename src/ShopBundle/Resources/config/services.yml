@@ -1,0 +1,16 @@
+parameters:
+    image_directory: '%kernel.root_dir%/../var/data/image'
+
+
+services:
+    shop.upload.image_uploader:
+        class: ShopBundle\Service\Upload\Uploader
+        arguments: ['%image_directory%']
+
+    shop.event_listener.image:
+        class: ShopBundle\EventListener\ImageEventListener
+        arguments: ['@shop.upload.image_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postRemove }

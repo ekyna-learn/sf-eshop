@@ -1,0 +1,4 @@
+shop_admin_dashboard:
+    path: /
+    defaults:
+        _controller: ShopBundle:Admin/Dashboard:index

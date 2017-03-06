@@ -1,0 +1,10 @@
+shop_catalog_index:
+    path:     /
+    defaults: { _controller: ShopBundle:Catalog:index }
+
+shop_catalog_image:
+    path:     /image/{imageId}
+    defaults:
+        _controller: ShopBundle:Catalog:image
+    requirements:
+        imageId: \d+

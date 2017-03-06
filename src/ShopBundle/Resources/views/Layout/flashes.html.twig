@@ -1,0 +1,11 @@
+{% if app.session.flashbag.peekAll|length > 0 %}
+    <div class="container">
+    {% for type, messages in app.session.flashbag.all %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type ? type : 'info' }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+{% endif %}

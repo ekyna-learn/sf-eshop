@@ -1,0 +1,19 @@
+shop_home:
+    path:     /
+    defaults: { _controller: ShopBundle:Page:index }
+
+shop_contact:
+    path:     /contact
+    defaults: { _controller: ShopBundle:Page:contact }
+
+shop_catalog:
+    resource: routing/catalog.yml
+    prefix: /catalog
+
+shop_cart:
+    resource: routing/cart.yml
+    prefix: /cart
+
+shop_admin:
+    resource: routing/admin.yml
+    prefix: /admin

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+
+    <title>{% block title 'Administration' %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/shop/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/admin.css') }}" rel="stylesheet">
+    {% endblock stylesheets %}
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/shop/js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('bundles/shop/js/respond.min.js') }}"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    {% include 'ShopBundle:Admin/Layout:navbar.html.twig' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                {% include 'ShopBundle:Admin/Layout:sidebar.html.twig' %}
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+                {% include "ShopBundle:Admin/Layout:flashes.html.twig" %}
+
+                {% block content %}{% endblock content %}
+
+            </div>
+        </div>
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/shop/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/shop/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/shop/js/ie10-viewport-bug-workaround.js') }}"></script>
+    {% endblock javascripts %}
+
+</body>
+</html>

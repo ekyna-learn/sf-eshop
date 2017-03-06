@@ -1,0 +1,147 @@
+{% extends "ShopBundle::base.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Accueil
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="font-size: 16px">
+        <div class="page-header">
+            <h1>Accueil</h1>
+        </div>
+        <p class="lead">
+            Développer un <em>mini site e-commerce</em> avec Symfony.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Feuille de route</h2>
+                <ol>
+                    <li>Configurer les routes et créer les controlleurs associés.</li>
+                    <li>Configurer le schéma de la base de données.</li>
+                    <li>Charger le jeu de test.</li>
+                    <li>Développer les templates de la partie publique.</li>
+                    <li>Développer le formulaire de contact.</li>
+                    <li>Développer l'administration.</li>
+                    <li>Sécuriser l'administration.</li>
+                </ol>
+            </div>
+            <div class="col-md-6">
+                <h2>Plan du site</h2>
+                <img src="{{ asset('bundles/shop/img/sitemap.gif') }}" alt="Sitemap"/>
+            </div>
+        </div>
+
+        <h2>Routes</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Action</th>
+                        <th>Nom de la route</th>
+                        <th>Url</th>
+                    </tr>
+                    <tr>
+                        <td>Accueil</td>
+                        <td>shop_home</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td>shop_contact</td>
+                        <td>/contact</td>
+                    </tr>
+                    <tr>
+                        <td>Catalogue</td>
+                        <td>shop_catalog_index</td>
+                        <td>/catalog</td>
+                    </tr>
+                    <tr>
+                        <td>Catégorie</td>
+                        <td>shop_catalog_category</td>
+                        <td>/catalog/[category-slug]</td>
+                    </tr>
+                    <tr>
+                        <td>Produit</td>
+                        <td>shop_catalog_product</td>
+                        <td>/catalog/[category-slug]/[product-slug]</td>
+                    </tr>
+                    <tr>
+                        <td>Panier</td>
+                        <td>shop_cart_index</td>
+                        <td>/cart</td>
+                    </tr>
+                    <tr>
+                        <td>Ajouter un produit au panier</td>
+                        <td>shop_cart_add</td>
+                        <td>/cart/add/[product-id]/[quantity]</td>
+                    </tr>
+                    <tr>
+                        <td>Retirer un produit du panier</td>
+                        <td>shop_cart_remove</td>
+                        <td>/cart/remove/[product-id]</td>
+                    </tr>
+                    <tr>
+                        <td>Augmenter la quantité du produit du panier</td>
+                        <td>shop_cart_increment</td>
+                        <td>/cart/increment/[product-id]</td>
+                    </tr>
+                    <tr>
+                        <td>Diminuer la quantité du produit du panier</td>
+                        <td>shop_cart_decrement</td>
+                        <td>/cart/decrement/[product-id]</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Base de données</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <img src="{{ asset('bundles/shop/img/schema.gif') }}"
+                     alt="Schema" class="img-responsive"/>
+            </div>
+            <div class="col-md-4">
+                <h3>Relations</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Category</th>
+                        <td>OneToOne</td>
+                        <td>Seo</td>
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <td>ManyToOne</td>
+                        <td>Category</td>
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <td>OneToOne</td>
+                        <td>Seo</td>
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <td>ManyToMany</td>
+                        <td>Feature</td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td>OneToMany</td>
+                        <td>Image</td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>ManyToOne</td>
+                        <td>Product</td>
+                    </tr>
+                    <tr>
+                        <td>Feature</td>
+                        <td>ManyToMany</td>
+                        <td>Product</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

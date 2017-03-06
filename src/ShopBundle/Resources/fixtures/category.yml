@@ -1,0 +1,20 @@
+ShopBundle\Entity\Category:
+    smartphones:
+        title: Smartphones
+        description: |
+            Découvrez notre collection de smartphones !
+        seo: <createSeo('Nos smartphones', 'Acheter smartphones')>
+        enabled: true
+    tablets:
+        title: Tablette tactiles
+        description: |
+            Découvrez notre collection de tablettes tactiles !
+        seo:  <createSeo('Nos tablettes tactiles', 'Acheter tablettes tactiles')>
+        enabled: true
+    accessories:
+        title: Accessoires
+        description: |
+            Découvrez notre gamme d'accessoires !
+        seo:  <createSeo('Nos accessoires', 'Acheter accessoire')>
+        enabled: false
+

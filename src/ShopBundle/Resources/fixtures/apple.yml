@@ -1,0 +1,113 @@
+ShopBundle\Entity\Product:
+    iphone_4:
+        category: '@smartphones'
+        seo:  <createSeo('Apple iPhone 4', 'Découvrez le nouvel Apple iPhone 4 !')>
+        title: Apple iPhone 4
+        description: |
+            Vendu à 1,7 million d'unités en trois jours, le terminal a bénéficié d'une couverture médiatique surréaliste
+            lors de sa sortie en 2010. Alors que le 3GS proposait une simple évolution de l'iPhone 3G, le numéro 4
+            apportait son lot de nouveautés : un look métamorphosé, un nouvel écran haute résolution prometteur, des
+            fonctions photo et vidéo renforcées, des changements d'interface attendus, et un système de visiophonie pour
+            converser de visu.
+        price: 228.85
+        stock: 5
+        releasedAt: 2014-8-20
+        features:
+            - '@wifi'
+            - '@3g'
+        images:
+            - <createImage('iphone-4.jpg', 'iPhone 4')>
+    iphone_6:
+        category: '@smartphones'
+        title: Apple iPhone 6
+        seo:  <createSeo('Apple iPhone 6', 'Découvrez le nouvel Apple iPhone 6 !')>
+        description: |
+            L´iPhone 6 n´est pas seulement plus grand en taille. Il est plus grand dans tous les sens du terme. Un écran
+            Retina HD de 4,7 pouces. Une puce A8 avec architecture 64 bits digne d´un ordinateur de bureau. Un nouvel
+            appareil photo iSight 8 Mpx avec Focus Pixels. Le capteur d´identité par empreinte digitaleTouch ID. Une
+            connectivité plus rapide en 4G LTE comme en Wi-Fi.
+        price: 392.78
+        stock: 40
+        releasedAt: 2015-10-10
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('iphone-6.jpg', 'iPhone 6')>
+    iphone_7:
+        category: '@smartphones'
+        title: Apple iPhone 7
+        seo:  <createSeo('Apple iPhone 7', 'Découvrez le nouvel Apple iPhone 7 !')>
+        description: |
+            L’iPhone 7 améliore de façon spectaculaire l’expérience iPhone, jusque dans ses aspects les plus fondamentaux.
+            Il inaugure des systèmes photographiques ultra-sophistiqués. Il offre des performances et une autonomie
+            jamais vues sur un iPhone. Il intègre des haut‑parleurs stéréo, pour une immersion sonore totale. Il est
+            doté de l’écran d’iPhone le plus éclatant et le plus lumineux. Il résiste aux éclaboussures et à l’eau. Et
+            sa puissance est à la hauteur de son look. Vous attendiez l’iPhone 7, le voici.
+        price: 673.55
+        stock: 50
+        releasedAt: 2016-11-15
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('iphone-7.jpg', 'iPhone 7')>
+
+    ipad_air_2:
+        category: '@tablets'
+        title: Apple iPad Air 2
+        seo:  <createSeo('Apple iPad Air 2', 'Découvrez le nouvel Apple iPad Air 2!')>
+        description: |
+            L'iPad Air 2 se renouvèle un peu partout : écran de 9,7 pouces toujours "Retina" (définition de 2048 x 1536
+            px) à dalle IPS qui adopte une nouvelle technique de fabrication, traitement contre les reflets, puce mobile
+            triple-cœur Apple A8X cadencée à 1,5 GHz et accompagnée d'une mémoire vive de 2 Go, capacité de stockage non
+            extensible déclinée en 16, 64 et 128 Go, appareil photo dorsal doté d'un capteur de 8 Mpx (captation vidéo
+            Full HD 1080p) et poids et épaisseur rabotés. Le capteur photo-vidéo avant conserve 1,2 Mpx, tandis que la
+            connectivité sans fil s'entiche d'un GPS, du Wi-Fi a/b/g/n/ac double-bande MIMO et du Bluetooth 4.0.
+        price: 442.00
+        stock: 0
+        releasedAt: 2014-04-19
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('ipad-air-2.jpg', 'iPad Air 2')>
+    ipad_mini:
+        category: '@tablets'
+        title: Apple iPad Mini
+        seo:  <createSeo('Apple iPad Mini', 'Découvrez le nouvel Apple iPad Mini !')>
+        description: |
+            La réponse d'Apple a ses principaux concurrents que sont Amazon ou Google, l'iPad mini dispose d'un écran de
+            7.9 pouces pour une résolution de 1024x768 pixels. Une mini tablette qui affiche une légèretée et une
+            finesse des plus incroyables, comptez 312 grammes et seulement 7,2 mm d'épaisseur ! L'iPad mini vous offre
+            également une caméra avant de 1.3 mpx permettant d'enregistrer en HD 720p et d'une caméra arrière de 5 mpx
+            HD en 1080p. D'après la presse spécialisée, la plus belle réussite d'Apple en terme de tablette tactile au
+            format idéal.
+        price: 445.94
+        stock: 25
+        releasedAt: 2015-02-12
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('ipad-mini.jpg', 'iPad Mini')>
+    ipad_pro:
+        category: '@tablets'
+        title: Apple iPad Pro
+        seo:  <createSeo('Apple iPad Pro', 'Découvrez le nouvel Apple iPad Pro !')>
+        description: |
+            L'iPad Pro livre une puissance vertigineuse, en 12,9 et 9,7 pouces. Découvrez la puce A9X, l'écran Retina
+            avancé, l'appareil iSight 12 Mpx et plus.
+        price: 853.00
+        stock: 40
+        releasedAt: 2016-05-15
+        features:
+            - '@wifi'
+            - '@3g'
+        images:
+            - <createImage('ipad-pro.jpg', 'iPad Pro')>
+

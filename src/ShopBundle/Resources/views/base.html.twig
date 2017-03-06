@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+
+    <title>{% block title 'Shop' %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/shop/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/styles.css') }}" rel="stylesheet">
+    {% endblock stylesheets %}
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/shop/js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('bundles/shop/js/respond.min.js') }}"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    {# Navbar #}
+    {{ render(controller('ShopBundle:Layout:navbar', {request: app.request})) }}
+
+    {% include "ShopBundle:Layout:flashes.html.twig" %}
+
+    {# Content #}
+    {% block content %}{% endblock %}
+
+    {# Footer #}
+    {% include "ShopBundle:Layout:footer.html.twig" %}
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/shop/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/shop/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/shop/js/ie10-viewport-bug-workaround.js') }}"></script>
+    {% endblock javascripts %}
+
+</body>
+</html>

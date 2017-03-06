@@ -1,0 +1,7 @@
+ShopBundle\Entity\Feature:
+    wifi:
+        title: WiFi
+    3g:
+        title: 3G
+    4g:
+        title: 4G

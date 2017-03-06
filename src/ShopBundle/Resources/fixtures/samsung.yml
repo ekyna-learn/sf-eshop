@@ -1,0 +1,116 @@
+ShopBundle\Entity\Product:
+    galaxy_s4:
+        category: '@smartphones'
+        title: Samsung Galaxy S4 Mini
+        seo:  <createSeo('Samsung Galaxy S4 Mini', 'Découvrez le nouveau Samsung Galaxy S4 Mini')>
+        description: |
+            Grâce à son design compact et ergonomique, le Galaxy S4 Mini tient confortablement en main. Il dispose d'un
+            écran 4.3'' Super AMOLED ultra lumineux, d'un design léger et fin tout en offrant des performances
+            remarquables grâce à son processeur Dual core 1.7 GHz. Le Galaxy S4 Mini est compatible avec la norme 4G /
+            LTE pour profiter du réseau mobile le plus rapide.
+        price: 319.01
+        stock: 0
+        releasedAt: 2013-7-15
+        features:
+            - '@wifi'
+            - '@3g'
+        images:
+            - <createImage('galaxy-s4-mini.jpg', 'Galaxy S4 Mini')>
+    galaxy_s5:
+        category: '@smartphones'
+        title: Samsung Galaxy S5 Mini
+        seo:  <createSeo('Samsung Galaxy S5 Mini', 'Découvrez le nouveau Samsung Galaxy S5 Mini')>
+        description: |
+            Avec seulement 9.1 mm d'épaisseur, le GALAXY S5 mini est un véritable concentré de technologie. Appréciez
+            son incroyable performance et son design fin qui rendent son utilisation extrêmement confortable. Grâce à
+            la norme IP 67, votre GALAXY S5 mini est protégé contre la sueur, la pluie, les liquides, le sable et la
+            poussière. Le large écran Super AMOLED HD de 4.5 pouces vous offre une expérience visuelle époustouflante.
+        price: 746.94
+        stock: 15
+        releasedAt: 2014-4-20
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('galaxy-s5-mini.jpg', 'Galaxy S5 Mini')>
+    galaxy_s6:
+        category: '@smartphones'
+        title: Samsung Galaxy S6 Edge +
+        seo:  <createSeo('Samsung Galaxy S6 Edge +', 'Découvrez le nouveau Samsung Galaxy S6 Edge +')>
+        description: |
+            Le Galaxy S6 edge+ est une version agrandie du S6 edge. On retrouve la même forme, avec les deux bords de
+            l'écran incurvés pour une diagonale de 5,7 pouces (14,5 cm) contre 5,1 (13 cm) pour le S6 edge. Samsung a
+            travaillé sur l'optimisation de la taille. Les bords étant très fins, le constructeur a réussi à loger un
+            écran de 5,7 pouces dans un smartphone rappelant plutôt le gabarit d'un modèle 5,5 pouces. On ressent bien
+            les 77 % d'occupation de la face avant par l'écran et l'on n'a pas le sentiment d'avoir une telle diagonale
+            entre les mains. De plus, la prise en main du GS6 edge n'était pas du goût de tout le monde, à cause
+            d'arêtes trop saillantes, le fabricant coréen a donc modifé la version "+"  avec un léger biseau qui adoucit
+            grandement le contact avec la paume.
+        price: 806.96
+        stock: 25
+        releasedAt: 2015-8-10
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('galaxy-s6-edge.jpg', 'Galaxy S6 Edge')>
+
+    galaxy_tab_3:
+        category: '@tablets'
+        title: Samsung Galaxy Tab 3
+        seo:  <createSeo('Samsung Galaxy 3', 'Découvrez le nouveau Samsung Galaxy 3')>
+        description: |
+            La Galaxy Tab 3 10.1 comporte donc un écran de 10,1 pouces à technologie PLS (dérivé de l'IPS de chez
+            Samsung), sous lequel on trouve un nouveau venu en termes de SoC pour produits mobiles : un processeur
+            double-cœur signé Intel, un Atom Z2560 cadencé à 1,6 GHz (iGPU PowerVR SGX544 MP2) et accompagné d'une
+            mémoire vie de 1 Go. Par le passé, Samsung s'est avant tout appuyé sur des processeurs maison (Exynos),
+            Qualcomm SnapDragon ou feu les OMAP de Texas Instruments. Un SoC Intel que l'on retrouve également sur la
+            version 8 pouces de la Galaxy Tab 3. La capacité de stockage est de 16 Go, extensible via une carte microSD,
+            jusqu'à un maximum de 64 Go supplémentaires. Deux capteurs photo-vidéo sont de la partie, l'un de 3,2
+            mégapixels à l'arrière, l'autre de 1,3 mégapixel en façade.
+        price: 334.00
+        stock: 2
+        releasedAt: 2013-1-20
+        features:
+            - '@wifi'
+        images:
+            - <createImage('galaxy-tab-3.jpg', 'Galaxy Tab 3')>
+    galaxy_tab_a:
+        category: '@tablets'
+        title: Samsung Galaxy Tab A
+        seo:  <createSeo('Samsung Galaxy A', 'Découvrez le nouveau Samsung Galaxy A')>
+        description: |
+            On retrouve donc dans la Galaxy Tab A 9,7 pouces une puce Snapdragon 410 quadcœur cadencée à 1,3 GHz, 2 Go
+            de mémoire RAM, 16 Go de mémoire interne extensible jusqu'à 128 Go via le port micro SD. La photo est
+            assurée par un appareil principal de 5 millions de pixels et un autre capteur en façade de 2 Mpx. L'écran
+            fait l'impasse sur la solution Super AMOLED propre au constructeur pour lui préférer une technologie TFT
+            moins coûteuse, et il faudra compter sur une (trop) maigre définition d'écran (1024 x 768 px).
+        price: 296.00
+        stock: 35
+        releasedAt: 2015-05-20
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('galaxy-tab-a.jpg', 'Galaxy Tab A')>
+    galaxy_tab_s2:
+        category: '@tablets'
+        title: Samsung Galaxy Tab S2
+        seo:  <createSeo('Samsung Galaxy S2', 'Découvrez le nouveau Samsung Galaxy S2')>
+        description: |
+            La Samsung Galaxy Tab S2 est une tablette sortie en 2 formats, le premier avec un écran de 8 pouces et un
+            second modèle avec un écran de 9.7 pouces. La Tab S2 propose un processeur 8 coeurs, accompagné de 3 Go de
+            Ram. Elle offre en outre une connectique assez complète, micro USB, micro SD jusqu'à 128 Go, elle tourne
+            également sous Android 5.0 lollipop. Une tablette qui se veut être le haut de gamme de Samsung.
+        price: 498.00
+        stock: 25
+        releasedAt: 2015-8-01
+        features:
+            - '@wifi'
+            - '@3g'
+            - '@4g'
+        images:
+            - <createImage('galaxy-tab-s2.jpg', 'Galaxy Tab S2')>
