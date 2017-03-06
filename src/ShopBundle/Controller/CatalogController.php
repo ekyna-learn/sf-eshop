@@ -24,6 +24,31 @@ class CatalogController extends Controller
     }
 
     /**
+     * Catalog category action.
+     *
+     * @param string $categorySlug
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function categoryAction($categorySlug)
+    {
+        return new Response('Category slug: ' . $categorySlug);
+    }
+
+    /**
+     * Catalog product action.
+     *
+     * @param string $categorySlug
+     * @param string $productSlug
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function productAction($categorySlug, $productSlug)
+    {
+        return new Response('Category slug: ' . $categorySlug . '<br>Product slug: ' . $productSlug);
+    }
+
+    /**
      * Catalog image action.
      *
      * @param Request $request

@@ -8,3 +8,18 @@ shop_catalog_image:
         _controller: ShopBundle:Catalog:image
     requirements:
         imageId: \d+
+
+shop_catalog_category:
+    path:     /{categorySlug}
+    defaults:
+        _controller: ShopBundle:Catalog:category
+    requirements:
+        categorySlug: "[a-z0-9-]+"
+
+shop_catalog_product:
+    path:     /{categorySlug}/{productSlug}
+    defaults:
+        _controller: ShopBundle:Catalog:product
+    requirements:
+        categorySlug: "[a-z0-9-]+"
+        productSlug: "[a-z0-9-]+"

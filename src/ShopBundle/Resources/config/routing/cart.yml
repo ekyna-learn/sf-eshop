@@ -1,3 +1,21 @@
 shop_cart_index:
     path:     /
     defaults: { _controller: ShopBundle:Cart:index }
+
+shop_cart_add:
+    path:     /add/{productId}/{quantity}
+    defaults:
+        _controller: ShopBundle:Cart:add
+        quantity: 1
+
+shop_cart_remove:
+    path:     /remove/{productId}
+    defaults: { _controller: ShopBundle:Cart:remove }
+
+shop_cart_decrement:
+    path:     /decrement/{productId}
+    defaults: { _controller: ShopBundle:Cart:decrement }
+
+shop_cart_increment:
+    path:     /increment/{productId}
+    defaults: { _controller: ShopBundle:Cart:increment }
