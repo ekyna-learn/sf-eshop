@@ -32,12 +32,3 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
-
-# Alice fixtures
-hautelook_alice:
-    db_drivers:
-        orm: ~
-    locale: fr_FR
-    seed: 123
-    persist_once: true
-    #loading_limit: 5
