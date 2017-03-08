@@ -47,7 +47,7 @@ class ShopExtension extends \Twig_Extension
      */
     public function getImagePath(Image $image)
     {
-        return $this->urlGenerator->generate('shop_shop_image', [
+        return $this->urlGenerator->generate('shop_catalog_image', [
             'imageId' => $image->getId(),
         ], UrlGeneratorInterface::ABSOLUTE_PATH);
     }
