@@ -12,7 +12,23 @@
                     <h1>Catalogue</h1>
                 </div>
 
-                {# TODO #}
+                {% for category in categories %}
+                    {% if loop.index0 % 2 == 0 %}<div class="row">{% endif %}
+
+                    <div class="col-md-6">
+                        <h2>{{ category.title }}</h2>
+                        <p>
+                            {{ category.description }}
+                        </p>
+                        <p>
+                            <a href="{{ path('shop_catalog_category', {'categorySlug': category.slug}) }}">
+                                Voir tous les produits
+                            </a>
+                        </p>
+                    </div>
+
+                    {% if loop.index % 2 == 0 or loop.last %}</div>{% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>

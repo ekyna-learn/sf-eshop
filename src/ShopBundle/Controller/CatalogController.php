@@ -20,7 +20,14 @@ class CatalogController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('ShopBundle:Catalog:index.html.twig');
+        $categories = $this
+            ->getDoctrine()
+            ->getRepository('ShopBundle:Category')
+            ->findBy(['enabled' => true]);
+
+        return $this->render('ShopBundle:Catalog:index.html.twig', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -34,7 +41,15 @@ class CatalogController extends Controller
     {
         $category = $this->findCategoryBySlug($categorySlug);
 
-        return new Response('Category: ' . $category->getTitle());
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('ShopBundle:Product')
+            ->findByCategory($category);
+
+        return $this->render('ShopBundle:Catalog:category.html.twig', [
+            'category' => $category,
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -54,11 +69,13 @@ class CatalogController extends Controller
             ->getRepository('ShopBundle:Product')
             ->findOneByCategoryAndSlug($category, $productSlug);
 
-        if (null === $product) {
+        if (!$product) {
             throw $this->createNotFoundException('Product not found.');
         }
 
-        return new Response('Category: ' . $category->getTitle() . '<br>Product: ' . $product->getTitle());
+        return $this->render('ShopBundle:Catalog:product.html.twig', [
+            'product' => $product,
+        ]);
     }
 
     /**

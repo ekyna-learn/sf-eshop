@@ -1,0 +1,54 @@
+{% extends "ShopBundle::base.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - [Product's seo title]
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <a href="{{ path('shop_catalog_category', {'categorySlug': product.category.slug}) }}"
+                        class="btn btn-sm btn-default pull-right">
+                        Retour à la catégorie
+                    </a>
+                    <h1>{{ product.title }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+                    {{ product.description }}
+                </p>
+                <p>
+                    Features:
+                    {% for feature in product.features %}
+                        {{ feature.title }}
+                        {% if not loop.last %}
+                            {% if loop.revindex0 == 1 %} et {% else %}, {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p class="text-right">
+                    <strong style="display:inline-block; padding: 5px 10px; font-size: 16px; line-height: 1.5;">
+                        {{ product.price|localizedcurrency('EUR') }}
+                    </strong>
+                    {# TODO add to cart #}
+                    <a href="{{ path('shop_cart_add', {'productId': product.id}) }}" class="btn btn-sm btn-primary">
+                        Ajouter au panier
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-6">
+            {% if product.images|length > 0 %}
+                {% set image = product.images|first %}
+                <img src="{{ image|image_path }}" alt="{{ image.alt }}" class="img-responsive">
+            {% else %}
+                {# TODO Default image ? #}
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
