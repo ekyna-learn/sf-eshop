@@ -1,0 +1,41 @@
+ShopBundle\Entity\Category:
+    properties:
+        title:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+        seo:
+            - NotNull: ~
+            - Valid: ~
+
+ShopBundle\Entity\Feature:
+    properties:
+        title:
+            - NotBlank: ~
+
+ShopBundle\Entity\Image:
+    properties:
+        alt:
+            - NotBlank: ~
+
+ShopBundle\Entity\Product:
+    properties:
+        title:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+        seo:
+            - NotNull: ~
+            - Valid: ~
+        price:
+            - GreaterThan: 0
+        stock:
+            - GreaterThanOrEqual: 0
+        releasedAt:
+            - NotNull: ~
+            - Type: \DateTime
+        features:
+            - Count:
+                min: 1
+        images:
+            - Valid: ~
