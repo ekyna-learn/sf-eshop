@@ -1,0 +1,6 @@
+shop_login:
+    path:     /login
+    defaults: { _controller: ShopBundle:Security:login }
+
+shop_logout:
+    path: /logout

@@ -39,3 +39,15 @@ ShopBundle\Entity\Product:
                 min: 1
         images:
             - Valid: ~
+
+ShopBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
+    properties:
+        username:
+            - NotBlank: ~
+            - Length:
+                min: 3
+    getters:
+        isActive:
+            - IsTrue: ~

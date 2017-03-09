@@ -6,6 +6,9 @@ shop_contact:
     path:     /contact
     defaults: { _controller: ShopBundle:Page:contact }
 
+shop_security:
+    resource: routing/security.yml
+
 shop_catalog:
     resource: routing/catalog.yml
     prefix: /catalog

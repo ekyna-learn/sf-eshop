@@ -37,3 +37,10 @@ services:
         class: ShopBundle\Service\Cart\CartCalculator
         arguments:
             - '@shop.service.cart_provider'
+
+    shop.service.user_manager:
+        class: ShopBundle\Service\User\UserManager
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@validator'
+            - '@security.password_encoder'

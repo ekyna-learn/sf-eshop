@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+
+    <title>Authentification</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/shop/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/shop/css/signin.css') }}" rel="stylesheet">
+    {% endblock stylesheets %}
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/shop/js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('bundles/shop/js/respond.min.js') }}"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+
+        <form class="form-signin" method="post">
+            <h2 class="form-signin-heading">Authentification</h2>
+
+            <label for="username" class="sr-only">Nom d'utilisateur</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}"
+                   class="form-control" placeholder="Nom d'utilisateur" required="" autofocus="">
+
+            <label for="password" class="sr-only">Mot de passe</label>
+            <input type="password" id="password" name="_password"
+                   class="form-control" placeholder="Mot de passe" required="">
+
+            {# http://symfony.com/doc/current/security/remember_me.html
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>#}
+
+            {# Précise la redirection suite à une authentification avec succès. #}
+            {# Voir app/config/security.yml #}
+            <input type="hidden" name="_target_path" value="{{ path('shop_admin_dashboard') }}" />
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
+            <a href="{{ path('shop_home') }}" class="btn btn-lg btn-link btn-block">
+                Retour à l'accueil
+            </a>
+        </form>
+
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/shop/js/ie10-viewport-bug-workaround.js') }}"></script>
+    {% endblock javascripts %}
+</body>
+</html>
+

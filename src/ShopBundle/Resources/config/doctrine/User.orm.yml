@@ -1,0 +1,26 @@
+ShopBundle\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: ShopBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: 25
+            unique: true
+            nullable: false
+        password:
+            type: string
+            length: 64
+            nullable: false
+        roles:
+            type: simple_array
+            nullable: false
+        isActive:
+            name: is_active
+            type: boolean
