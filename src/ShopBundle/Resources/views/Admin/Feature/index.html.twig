@@ -1,0 +1,53 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Features list</h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-stripped table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for feature in features %}
+                <tr>
+                    <td>
+                        <a href="{{ path('shop_admin_feature_show', { 'id': feature.id }) }}">
+                            {{ feature.id }}
+                        </a>
+                    </td>
+                    <td>{{ feature.title }}</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{ path('shop_admin_feature_show', { 'id': feature.id }) }}"
+                                    class="btn btn-xs btn-primary">
+                                    Show
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('shop_admin_feature_edit', { 'id': feature.id }) }}"
+                                    class="btn btn-xs btn-warning">
+                                    Edit
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_feature_new') }}" class="btn btn-sm btn-success">
+                Create a new feature
+            </a>
+        </li>
+    </ul>
+{% endblock %}

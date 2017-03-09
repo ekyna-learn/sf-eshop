@@ -1,0 +1,28 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Product edit</h1>
+    <hr>
+    {{ form_start(edit_form) }}
+        {% form_theme edit_form.images "ShopBundle:Admin/Form:product_form_layout.html.twig" %}
+        {{ form_widget(edit_form) }}
+    {{ form_end(edit_form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_product_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/shop/js/product-images.js') }}"></script>
+{% endblock %}

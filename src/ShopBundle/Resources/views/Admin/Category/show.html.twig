@@ -1,0 +1,49 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Category</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ category.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if category.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ category.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_category_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('shop_admin_category_edit', { 'id': category.id }) }}"
+                class="btn btn-sm btn-warning">
+                Edit
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

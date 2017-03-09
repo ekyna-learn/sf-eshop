@@ -1,0 +1,59 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Products list</h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-stripped table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Releasedat</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>
+                        <a href="{{ path('shop_admin_product_show', { 'id': product.id }) }}">
+                            {{ product.id }}
+                        </a>
+                    </td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td>{% if product.releasedAt %}{{ product.releasedAt|date('Y-m-d') }}{% endif %}</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{ path('shop_admin_product_show', { 'id': product.id }) }}"
+                                    class="btn btn-xs btn-primary">
+                                    Show
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('shop_admin_product_edit', { 'id': product.id }) }}"
+                                    class="btn btn-xs btn-warning">
+                                    Edit
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_product_new') }}" class="btn btn-sm btn-success">
+                Create a new product
+            </a>
+        </li>
+    </ul>
+{% endblock %}

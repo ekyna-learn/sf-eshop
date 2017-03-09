@@ -1,0 +1,24 @@
+shop_admin_category_index:
+    path:     /
+    defaults: { _controller: "ShopBundle:Admin/Category:index" }
+    methods:  GET
+
+shop_admin_category_show:
+    path:     /{id}/show
+    defaults: { _controller: "ShopBundle:Admin/Category:show" }
+    methods:  GET
+
+shop_admin_category_new:
+    path:     /new
+    defaults: { _controller: "ShopBundle:Admin/Category:new" }
+    methods:  [GET, POST]
+
+shop_admin_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ShopBundle:Admin/Category:edit" }
+    methods:  [GET, POST]
+
+shop_admin_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ShopBundle:Admin/Category:delete" }
+    methods:  DELETE

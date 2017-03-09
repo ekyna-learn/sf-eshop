@@ -2,3 +2,15 @@ shop_admin_dashboard:
     path: /
     defaults:
         _controller: ShopBundle:Admin/Dashboard:index
+
+shop_admin_category:
+    resource: admin/category.yml
+    prefix:   /category
+
+shop_admin_feature:
+    resource: admin/feature.yml
+    prefix:   /feature
+
+shop_admin_product:
+    resource: admin/product.yml
+    prefix:   /product

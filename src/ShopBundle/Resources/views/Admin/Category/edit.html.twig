@@ -1,0 +1,22 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Category edit</h1>
+    <hr>
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+    {{ form_end(edit_form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_category_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

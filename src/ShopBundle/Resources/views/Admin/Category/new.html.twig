@@ -1,0 +1,17 @@
+{% extends 'ShopBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Category creation</h1>
+    <hr>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('shop_admin_category_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %}
