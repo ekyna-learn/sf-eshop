@@ -12,7 +12,55 @@
                 <h1>Panier</h1>
             </div>
 
-            {# TODO #}
+            {% if 0 < cart.items|length %}
+                <table class="table table-striped">
+                    <tr>
+                        <th>Produit</th>
+                        <th class="text-center">Quantité</th>
+                        <th class="text-right">Prix</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    {% for item in cart.items %}
+                        <tr>
+                            <td>
+                                {{ item.product.title }}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ path('shop_cart_decrement', {'productId': item.product.id}) }}"
+                                   class="btn btn-xs btn-primary">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </a>
+                                <span style="display: inline-block; padding: 0 4px;">
+                            {{ item.quantity }}
+                        </span>
+                                <a href="{{ path('shop_cart_increment', {'productId': item.product.id}) }}"
+                                   class="btn btn-xs btn-primary">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </td>
+                            <td class="text-right">
+                                {{ item.product.price|localizedcurrency('EUR') }}
+                            </td>
+                            <td>
+                                <a href="{{ path('shop_cart_remove', {'productId': item.product.id}) }}" class="btn btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td class="text-right">
+                            <strong>Total</strong> : {{ total|localizedcurrency('EUR') }}
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            {% else %}
+                <p>
+                    <em>Votre panier est vide.</em>
+                </p>
+            {% endif %}
         </div>
     </div>
 </div>

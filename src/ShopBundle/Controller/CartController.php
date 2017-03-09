@@ -4,7 +4,6 @@ namespace ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class CartController
@@ -19,7 +18,16 @@ class CartController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('ShopBundle:Cart:index.html.twig');
+        $cart = $this->getCartProvider()->getCart();
+
+        $total = $this
+            ->get('shop.service.cart_calculator')
+            ->getCartTotal();
+
+        return $this->render('ShopBundle:Cart:index.html.twig', [
+            'cart'  => $cart,
+            'total' => $total,
+        ]);
     }
 
     /**
@@ -34,7 +42,19 @@ class CartController extends Controller
         $productId = $request->attributes->get('productId');
         $quantity = $request->attributes->get('quantity');
 
-        return new Response('Product id: ' . $productId . '<br>Quantity: ' . $quantity);
+        if ($this->getCartProvider()->add($productId, $quantity)) {
+            $this->addFlash('success', 'Le produit a bien été ajouté au panier');
+        } else {
+            $this->addFlash('danger', 'Erreur lors de l\'ajout au panier');
+        }
+
+        // Redirige vers l'url précédente
+        $referer = $request->headers->get('referer');
+        if (0 < strlen($referer)) {
+            return $this->redirect($referer);
+        }
+
+        return $this->redirectToRoute('shop_catalog_index');
     }
 
     /**
@@ -46,7 +66,13 @@ class CartController extends Controller
      */
     public function removeAction($productId)
     {
-        return new Response('Product id: ' . $productId);
+        if ($this->getCartProvider()->remove($productId)) {
+            $this->addFlash('success', 'Le produit a bien été retiré du panier');
+        } else {
+            $this->addFlash('danger', 'Erreur lors du retrait du panier');
+        }
+
+        return $this->redirectToRoute('shop_cart_index');
     }
 
     /**
@@ -58,7 +84,9 @@ class CartController extends Controller
      */
     public function decrementAction($productId)
     {
-        return new Response('Product id: ' . $productId);
+        $this->getCartProvider()->decrement($productId);
+
+        return $this->redirectToRoute('shop_cart_index');
     }
 
     /**
@@ -70,6 +98,18 @@ class CartController extends Controller
      */
     public function incrementAction($productId)
     {
-        return new Response('Product id: ' . $productId);
+        $this->getCartProvider()->increment($productId);
+
+        return $this->redirectToRoute('shop_cart_index');
+    }
+
+    /**
+     * Returns the cart provider.
+     *
+     * @return \ShopBundle\Service\Cart\CartProvider
+     */
+    private function getCartProvider()
+    {
+        return $this->get('shop.service.cart_provider');
     }
 }

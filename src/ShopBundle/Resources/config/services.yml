@@ -15,8 +15,25 @@ services:
             - { name: doctrine.event_listener, event: preUpdate }
             - { name: doctrine.event_listener, event: postRemove }
 
-    app.twig.shop_extension:
+    shop.twig.shop_extension:
         class: ShopBundle\Service\Twig\ShopExtension
         arguments: ['@router']
         tags:
             - { name: twig.extension }
+
+    shop.repository.product:
+        class: ShopBundle\Repository\ProductRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - ShopBundle\Entity\Product
+
+    shop.service.cart_provider:
+        class: ShopBundle\Service\Cart\CartProvider
+        arguments:
+            - '@session'
+            - '@shop.repository.product'
+
+    shop.service.cart_calculator:
+        class: ShopBundle\Service\Cart\CartCalculator
+        arguments:
+            - '@shop.service.cart_provider'

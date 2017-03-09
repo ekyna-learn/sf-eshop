@@ -35,7 +35,6 @@
                     <strong style="display:inline-block; padding: 5px 10px; font-size: 16px; line-height: 1.5;">
                         {{ product.price|localizedcurrency('EUR') }}
                     </strong>
-                    {# TODO add to cart #}
                     <a href="{{ path('shop_cart_add', {'productId': product.id}) }}" class="btn btn-sm btn-primary">
                         Ajouter au panier
                     </a>
